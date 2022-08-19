@@ -16,12 +16,23 @@ def swapi(request):
         return render (request, "swapi.html", {"data": data})
         # return HttpResponse(json.dumps(data), content_type='application/json')
 
-def selflink(request):
+def films(request):
     path = request.GET["path"]
     print(path, "")
     url = requests.get(path)
-    bookselflink = json.loads(url.text)
+    data = json.loads(url.text)
     # print(len(bookselflink))
-    # return render(request, "selflink.html", {"books": bookselflink})
-    return HttpResponse(json.dumps(bookselflink),content_type='application/json')
+    return render(request, "selflink.html", {"data": data})
+    # return HttpResponse(json.dumps(data),content_type='application/json')
     # return render(request, "selflink.html")
+
+
+def people(request):
+    path = request.GET["path"]
+    print(path, "")
+    url = requests.get(path)
+    data = json.loads(url.text)
+    # print(len(bookselflink))
+    # return render(request, "selflink.html", {"data": data})
+    return HttpResponse(json.dumps(data), content_type='application/json')
+    # return render(request,"home.html")

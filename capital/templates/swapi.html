@@ -6,47 +6,59 @@
 </head>
 <body>
 <form method="get">
-    <table border = 2px>
+    <table border=5>
         <tr>
-            <td><h3>Name :</h3></td><td><h4>{{data.name}}</h4></td>
-        </tr><tr>
-            <td><h3>Height :</h3></td><td><h5>{{data.height}}</h5></td>
-            <td><h3>Mass :</h3></td><td><h5>{{data.mass}}</h5></td>
-        <td><h3>Hair Color :</h3></td><td><h5>{{data.hair_color}}</h5></td>
-        <td><h3>Skin Color :</h3></td><td><h5>{{data.skin_color}}</h5></td>
-        <td><h3>Eye Color :</h3></td><td><h5>{{data.eye_color}}</h5></td>
-        <td><h3>Birth  :</h3></td><td><h5>{{data.birth_year}}</h5></td>
-        <td><h3>Gender  :</h3></td><td><h5>{{data.gender}}</h5></td>
-        <td><a href="/selflink?path={{data.homeworld}}"  target=" "><h3>Home World</h3></a></td>
-        </tr><tr>
-        <td><h3>Films  :</h3></td>
-        <td><a href="/selflink?path={{data.films.0}}"  target=" "><h3>See Links 1</h3></a></td>
-        <td><a href="/selflink?path={{data.films.1}}"  target=" "><h3>See Links 2</h3></a></td>
-        <td><a href="/selflink?path={{data.films.2}}"  target=" "><h3>See Links 3</h3></a></td>
-        <td><a href="/selflink?path={{data.films.3}}"  target=" "><h3>See Links 4</h3></a></td>
-        </tr><tr>
-        <td><h3>Vehicles  :</h3></td>
-        <td><a href="/selflink?path={{data.vehicles.0}}"  target=" "><h3>Vehicles Link 1</h3></a></td>
-        <td><a href="/selflink?path={{data.vehicles.1}}"  target=" "><h3>Vehicles Link 2</h3></a></td>
-
-        </tr><tr>
-        <td><h3>Starships  :</h3></td>
-        <td><a href="/selflink?path={{data.starships.0}}"  target=" "><h3>Starship Link 1</h3></a></td>
-        <td><a href="/selflink?path={{data.starships.1}}"  target=" "><h3>Starship Link 2</h3></a></td>
-
-        </tr><tr>
-        <td> <h3>Created</h3></td>
-        <td> <h3>{{data.created}}</h3></td>
-        </tr><tr>
-        <td> <h3>Edited</h3></td>
-        <td> <h3>{{data.edited}}</h3></td>
-
-        </tr><tr>
+            <th><h3>Name</h3></th>
+            <th><h3>Height</h3></th>
+            <th><h3>Mass</h3></th>
+            <th><h3>Hair Color </h3></th>
+            <th><h3>Skin Color </h3></th>
+            <th><h3>Eye Color </h3></th>
+            <th><h3>Birth </h3></th>
+            <th><h3>Gender </h3></th>
+            <th><h3>Films </h3></th>
+            <th><h3>Home wold</h3></th>
+            <th><h3>Vehicals</h3></th>
+            <th><h3>Starships</h3></th>
+            <th><h3>CREATED</h3></th>
+            <th><h3>Edited</h3></th>
 
         </tr>
+        <tr>
+            <td><h4>{{data.name}}</h4></td>
+            <td><h5>{{data.height}}</h5></td>
+            <td><h5>{{data.mass}}</h5></td>
+            <td><h5>{{data.hair_color}}</h5></td>
+            <td><h5>{{data.skin_color}}</h5></td>
+            <td><h5>{{data.eye_color}}</h5></td>
+            <td><h5>{{data.birth_year}}</h5></td>
+            <td><h5>{{data.gender}}</h5></td>
+            <td>
+                {% for films in data.films %}
+                <a  style="text-decoration:none;" href="/films?path={{films}}" target=" "><h3>See Links</h3></a><br>
+                {% endfor %}
+            </td>
+            <td>
+                <a  style="text-decoration:none;" href="/films?path={{data.homeworld}}" target=" "><h3>Home World</h3></a>
+            </td>
+            <td>
+                {% for vehicles in data.vehicles %}
+                <a  style="text-decoration:none;" href="/films?path={{vehicles}}" target=" "><h3>Vehicles</h3></a>
+                {% endfor %}
+            </td>
+            <td>
+                {% for starships in data.starships %}
+                <a  style="text-decoration:none;" href="/films?path={{starships}}" target=" "><h3>Starship</h3></a>
+                {% endfor %}
+            </td>
+            <td>
+                <h3>{{data.created}}</h3>
+            </td>
+            <td>
+                <h3>{{data.edited}}</h3>
+            </td>
+        </tr>
     </table>
-
-
 </form>
 </body>
 </html>
