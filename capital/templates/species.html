@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Species SW API</title>
+</head>
+<body>
+<form method="get">
+    <table border=5>
+        <tr>
+            <th><h3>Name</h3></th>
+            <th><h3>Classification</h3></th>
+            <th><h3>Designation</h3></th>
+            <th><h3>Average Height</h3></th>
+            <th><h3>Skin Color</h3></th>
+            <th><h3>Hair Color</h3></th>
+            <th><h3>Eye Color</h3></th>
+            <th><h3>Average Lifespan</h3></th>
+            <th><h3>Home World</h3></th>
+            <th><h3>Language</h3></th>
+            <th><h3>People</h3></th>
+            <th><h3>Films</h3></th>
+            <th><h3>Created</h3></th>
+            <th><h3>Edited</h3></th>
+
+        </tr>
+        <tr>
+            <td><h4>{{data.name}}</h4></td>
+            <td><h5>{{data.classification}}</h5></td>
+            <td><h5>{{data.designation}}</h5></td>
+            <td><h5>{{data.average_height}}</h5></td>
+            <td><h5>{{data.skin_colors}}</h5></td>
+            <td><h5>{{data.hair_colors}}</h5></td>
+            <td><h5>{{data.eye_colors}}</h5></td>
+            <td><h5>{{data.average_lifespan}}</h5></td>
+            <td><h5>{{data.homeworld}}</h5></td>
+            <td><h5>{{data.language}}</h5></td>
+            <td>
+                {% for p in data.people %}
+                <a  style="text-decoration:none;" href="/character?path={{p}}" target=" "><h3>People</h3></a><br>
+                {% endfor %}
+            </td>
+
+            <td>
+                {% for film in data.films %}
+                <a  style="text-decoration:none;" href="/films?path={{film}}" target=" "><h3>Film</h3></a>
+                {% endfor %}
+            </td>
+            <td>
+                <h3>{{data.created}}</h3>
+            </td>
+            <td>
+                <h3>{{data.edited}}</h3>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

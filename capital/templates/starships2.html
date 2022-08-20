@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Starships</title>
+</head>
+<body>
+<form method="get">
+    <table border=5>
+        <tr>
+            <th><h3>Title</h3></th>
+            <th><h3>Episode</h3></th>
+            <th><h3>Opening crawl</h3></th>
+            <th>    <h3>Director </h3></th>
+            <th><h3>Producer</h3></th>
+            <th><h3>Release date </h3></th>
+            <th><h3>Charecters </h3></th>
+            <th><h3>Planets </h3></th>
+            <th><h3>Star ships </h3></th>
+            <th><h3>Vehicles</h3></th>
+            <th><h3>Species</h3></th>
+            <th><h3>CREATED</h3></th>
+            <th><h3>Edited</h3></th>
+
+        </tr>
+        <tr>
+            <td><h4>{{data.title}}</h4></td>
+            <td><h5>{{data.episode_id}}</h5></td>
+            <td><h5>{{data.opening_crawl}}</h5></td>
+            <td><h5>{{data.director}}</h5></td>
+            <td><h5>{{data.producer}}</h5></td>
+            <td><h5>{{data.release_date}}</h5></td>
+            <td>
+                {% for ch in data.characters %}
+                <a style="text-decoration:none;" href="/people?path={{ch}}" target=" "><h3>charactor</h3></a><br>
+                {% endfor %}
+            </td>
+
+            <td>
+                {% for pl in data.planets %}
+                <a style="text-decoration:none;" href="/people?path={{pl}}" target=" "><h3>planets</h3></a><br>
+                {% endfor %}
+            </td>
+            <td>
+                {% for st in data.starships %}
+                <a style="text-decoration:none;" href="/people?path={{st}}" target=" "><h3>starships</h3>
+                </a><br>
+                {% endfor %}
+            </td>
+            <td>
+                {% for vehicles in data.vehicles %}
+                <a style="text-decoration:none;" href="/people?path={{vehicles}}" target=" "><h3>Vehicles</h3></a>
+                {% endfor %}
+            </td>
+            <td>
+                {% for starships in data.starships %}
+                <a style="text-decoration:none;" href="/people?path={{starships}}" target=" "><h3>Starship</h3></a>
+                {% endfor %}
+            </td>
+             <td>
+                {% for sp in data.species %}
+                <a style="text-decoration:none;" href="/people?path={{sp}}" target=" "><h3>species</h3></a><br>
+                {% endfor %}
+            </td>
+            <td>
+                <h3>{{data.created}}</h3>
+            </td>
+            <td>
+                <h3>{{data.edited}}</h3>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
